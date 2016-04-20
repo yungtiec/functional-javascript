@@ -26,3 +26,33 @@ Array.prototype.myMap = function(projectionFn) {
   })
   return arr;
 }
+
+Array.prototype.myMerge = function(arr,callback) {
+  var newArr = [];
+  // check if array lengths are the same
+  if (arr.length != this.length) {
+    return "can't merge arrays with different length";
+  }
+  if (typeof callback !== "function") {
+    return "callback should be a valid function";
+  }
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(callback(this[i],arr[i]));
+  }
+  return newArr;
+}
+
+function merge(arr1,arr2,callback) {
+  var arr = [];
+  // check if array lengths are the same
+  if (arr1.length != arr2.length) {
+    return "can't merge arrays with different length";
+  }
+  if (typeof callback !== "function") {
+    return "callback should be a valid function";
+  }
+  for (var i = 0; i < arr1.length; i++) {
+    arr.push(callback(arr1[i],arr2[i]));
+  }
+  return arr;
+}
