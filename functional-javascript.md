@@ -6,7 +6,8 @@ Closure has the following scopes:
 - its higher-order function's scope
   - has access even after the higher order function has returned
   - store references
-- its own scope     
+- its own scope 
+
 ## Be careful with loops
 The intent with the function below is to log a fruit in the array every second, but the function outpus undefined four times instead.
 ```javascript
@@ -65,7 +66,6 @@ function Dog(b) {
 }
 ```
 Everytime a dog instance is created, the bark method is added to the instance. However, the method does not use any private data so it's a wasted of time to add it to every instance. One can add bark() to the Dog prototype. 
-### using it as callback
 #Callback function 
 A *callback function* is a function that is passed to another function as a argument.
 For example:
@@ -88,7 +88,7 @@ At some point, it will be "called back" by the higher order function, hence the 
 ```javascript
 setTimeout(function() {
   alert('timeout!');
-},5000);
+},1000);
 ```
 In this example, the anonymous function is called back after 1 second. Even without a name, the higher order function accesses the callback function via the arguments object.
 ## Be careful when callback use *this*
