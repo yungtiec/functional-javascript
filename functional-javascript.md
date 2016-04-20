@@ -1,7 +1,7 @@
 #Callback function 
 **Functions are first-class objects in JavaScript!** so functions can be passed as arguments to other functions and be returned by other functions. 
 A **higher order function** takes other functions as arguments or returns other functions.
-A **callback function** is a function that is passed to another function as a parameter.
+A **callback function** is a function that is passed to another function as a argument.
 For example:
 ```javascript
 var arr = [1,2,3];
@@ -22,4 +22,4 @@ setTimeout(function() {
   alert('timeout!');
 },5000);
 ```
-In this example, the anonymous function is called back after 1 second. 
+In this example, the anonymous function is called back after 1 second. Even without a name, the higher order function accesses the callback function via the arguments object.
