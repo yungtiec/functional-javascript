@@ -91,10 +91,11 @@ setTimeout(function() {
 },1000);
 ```
 In this example, the anonymous function is called back after 1 second. Even without a name, the higher order function accesses the callback function via the arguments object.
-## Be careful when callback use *this*
+## Be careful when callbacks use *this*
 First, we need to understand *this*
 #### *this* depends on execution context
 By default, this refers to the global object because the execution context is global when a program starts. In the case of browser, it refers to the window. However, a few situations can change the value of this. 
+
 1. Method invocations
 2. The new operator
 3. call and apply
