@@ -21,7 +21,7 @@ function printFruitsWrong(fruits){
 }
 ```
 setTimeout is called and returned every iteration, having to wait i*1000 ms. However, i is incremented every iteration so when the time's up, the console.log function, here as the callback function, fires up, and uses the reference it stored to get i, only to get a value of four because the loop has ended. Since the fruit array only have four elements, fruit[4] returns undefined. 
-### The fix: Immediately-invoked function expression
+#### The fix: Immediately-invoked function expression
 In this case, the current value of i is passed as an argument to a immediately-invoked function, which creates a private scope to encapsulate the data inside. 
 ```Javascript
 function printFruits(fruits){
@@ -92,8 +92,16 @@ setTimeout(function() {
 ```
 In this example, the anonymous function is called back after 1 second. Even without a name, the higher order function accesses the callback function via the arguments object.
 ## Be careful when callback use *this*
+First, we need to understand *this*
+#### *this* depends on execution context
+By default, this refers to the global object because the execution context is global when a program starts. In the case of browser, it refers to the window. However, a few situations can change the value of this. 
+1. Method invocations
+2. The new operator
+3. call and apply
+
+
 ## Reference
-http://www.sitepoint.com/javascript-closures-demystified/
-http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
-http://javascriptissexy.com/understand-javascript-closures-with-ease/
-http://www.sitepoint.com/demystifying-javascript-closures-callbacks-iifes/
+- http://www.sitepoint.com/javascript-closures-demystified/
+- http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
+- http://javascriptissexy.com/understand-javascript-closures-with-ease/
+- http://www.sitepoint.com/demystifying-javascript-closures-callbacks-iifes/
