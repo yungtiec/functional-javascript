@@ -16,6 +16,7 @@ When a callback function is passed to another function as a paramter, it is only
 (function(){/*...*/}()) // Crockford's recommendation
 (function(){/*...*/})() // or this 
 ```
+>
 At some point, it will be "called back" by the higher order function, hence the name callback.
 ```javascript
 setTimeout(function() {
