@@ -9,7 +9,7 @@ Closure has the following scopes:
 - its own scope 
 
 ## Be careful with loops
-The intent with the function below is to log a fruit in the array every second, but the function outpus undefined four times instead.
+The intent with the function below is to log a fruit every second, but the function outputs undefined four times instead.
 ```javascript
 var = ["Lemon", "Orange", "Mango", "Banana"];
 function printFruitsWrong(fruits){
@@ -20,9 +20,9 @@ function printFruitsWrong(fruits){
   }
 }
 ```
-setTimeout is called and returned every iteration, having to wait i*1000 ms. However, i is incremented every iteration so when the time's up, the console.log function, here as the callback function, fires up, and uses the reference it stored to get i, only to get a value of four because the loop has ended. Since the fruit array only have four elements, fruit[4] returns undefined. 
+setTimeout is called and returned every iteration, having to wait i*1000 ms. At the same time, i, which doesn't have to wait, is incremented every iteration. When the time's up, console.log, here as the callback function, fires up, and uses the reference it stored to get i, only to get a value of four because the loop has ended. Since the fruit array only have four elements, fruit[4] returns undefined. 
 #### The fix: Immediately-invoked function expression
-In this case, the current value of i is passed as an argument to a immediately-invoked function, which creates a private scope to encapsulate the data inside. 
+In this case, the i value in every iteration is passed as an argument to an immediately-invoked function, which creates a private scope to encapsulate the data inside. 
 ```Javascript
 function printFruits(fruits){
   for (var i = 0; i < fruits.length; i++) {
@@ -66,6 +66,31 @@ function Dog(b) {
 }
 ```
 Everytime a dog instance is created, the bark method is added to the instance. However, the method does not use any private data so it's a wasted of time to add it to every instance. One can add bark() to the Dog prototype. 
+#### The fix: Prototypical Inheritance
+```
+function Dog(b) {
+  var breed = b;
+  this.getBreed = function() {
+    return breed;
+  };
+}
+Dog.prototype.bark = function() {
+  console.log('bark');
+}
+###### Takeaway
+Use closure to access private variables defined in the constructor function. (breed/getBreed)
+If breed is one of the properties of a Dog object instance, then getBreed() can be added to prototype.
+```
+function Dog(b) {
+  this.breed = b;
+}
+Dog.prototype.getBreed = function() {
+  return breed;
+};
+Dog.prototype.bark = function() {
+  console.log('bark');
+}
+```
 #Callback function 
 A *callback function* is a function that is passed to another function as a argument.
 For example:
