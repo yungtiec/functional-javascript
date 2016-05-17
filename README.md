@@ -77,6 +77,7 @@ function Dog(b) {
 Dog.prototype.bark = function() {
   console.log('bark');
 }
+```
 ###### Takeaway
 Use closure to access private variables defined in the constructor function. (breed/getBreed)
 If breed is one of the properties of a Dog object instance, then getBreed() can be added to prototype.
