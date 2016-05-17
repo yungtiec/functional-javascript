@@ -72,7 +72,7 @@ function Dog(b) {
   var breed = b;
   this.getBreed = function() {
     return breed;
-  };
+  }
 }
 Dog.prototype.bark = function() {
   console.log('bark');
@@ -86,8 +86,8 @@ function Dog(b) {
   this.breed = b;
 }
 Dog.prototype.getBreed = function() {
-  return breed;
-};
+  return this.breed;
+}
 Dog.prototype.bark = function() {
   console.log('bark');
 }
